@@ -1,0 +1,217 @@
+﻿<Window x:Class="SimpleCalculator.CalculatorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SimpleCalculator"
+        mc:Ignorable="d"
+        Title="Caffeine Calculator" 
+        Height="800" 
+        Width="800"
+        Background="#DAA756">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="59*"/>
+            <ColumnDefinition Width="12*"/>
+            <ColumnDefinition Width="721*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Vertical"
+                    Width="500" Grid.Column="2" Margin="75,0,146,0">
+            <StackPanel Orientation="Vertical" Width="500">
+                <!-- Title -->
+                <Label 
+                Content="Caffeine Calculator" 
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top" 
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                Margin="10,0,10,0" 
+                Height="100" 
+                Width="388"
+                FontSize="40"
+                FontFamily="American Typewriter, serif"
+                FontWeight="Bold"
+                Foreground="#A5531F"/>
+                <Image
+                    Width="563"
+                    Height="151"
+                    HorizontalAlignment="Center"
+                    Source="Images/coffeeGIF.gif" Margin="-188,0,125,0" RenderTransformOrigin="0.5,0.5"/>
+
+                <!-- Image -->
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Margin="5,5,-335,5" Height="73">
+                <!-- Directions -->
+
+                <!-- User Feedback Block -->
+                <Button 
+                Content="Help"
+                Width="60" 
+                Margin="0,20,357,5"
+                Padding="5"
+                HorizontalAlignment="Right"
+                FontSize="16" 
+                FontFamily="American Typewriter, serif"
+                FontWeight="Bold"
+                Background="#612A12"
+                Foreground="BlanchedAlmond" 
+                Click="Help_Button_Click"/>
+
+                <!-- User Feedback Block -->
+                <TextBlock 
+                x:Name ="textBlockUserFeedback"
+                Width="500"
+                TextAlignment="Center"
+                Margin="0,15,0,5"
+                FontFamily="Comic Sans"
+                Foreground="Red"
+                FontSize="20"
+            />
+            </StackPanel>
+
+            <!-- Content Grid -->
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="80"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Content="Weight (lbs)"
+                    FontSize="20"
+                    FontFamily="American Typewriter, serif"
+                    FontWeight="Bold"
+                    Foreground="#612A12"/>
+                <TextBox
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    HorizontalAlignment="Left"
+                    Margin="5,0,0,0"
+                    Name="weight"
+                    Width="125" 
+                    Height="30"
+                    Background="BlanchedAlmond"
+                    BorderBrush="#612A12"
+                    BorderThickness="2"
+                    TextChanged="Input_Changed"
+                    />
+
+                <!-- Drop Down Menu -->
+                <ComboBox 
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    x:Name="comboBoxCaffeine"
+                    Height="30"
+                    VerticalContentAlignment="Center"
+                    FontSize="16"
+                    Margin="10">
+                    <ComboBoxItem Content="Cup of Coffee (8 Oz)" IsSelected="true"/>
+                    <ComboBoxItem Content="Can of Soda (12 Oz)"/>
+                    <ComboBoxItem Content="Coffee, Espresso (1 Oz)"/>
+                    <ComboBoxItem Content="Cup of Tea (8 Oz)"/>
+                </ComboBox>
+
+                <!-- Radio Buttons -->
+                <RadioButton 
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Name="moreSensitive"
+                    Content="More Sensitive"
+                    Tag="-1"
+                    FontSize="16"
+                    Margin="0,5,0,0"
+                    Checked="Sensitive_Checked"
+
+                    />
+                <RadioButton
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Name="normal"
+                    Content="Normal"
+                    IsChecked="True"
+                    Tag="0"
+                    FontSize="16"
+                    Margin="0,25,0,-15"
+                     Checked="Sensitive_Checked"
+
+                    />
+                <RadioButton
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Name="lessSensitive"
+                    Content="Less Sensitive"
+                    Tag="1"
+                    FontSize="16"
+                    HorizontalAlignment="Left" 
+                    Margin="0,45,0,0" 
+                    Checked="Sensitive_Checked"
+
+                    />
+            </Grid>
+            <!-- Calculate Button -->
+            <StackPanel Orientation="Horizontal">
+                <Button 
+                    Name="buttonCalculate"
+                    Content="Calculate"
+                    Width="200"
+                    Height="54"
+                    FontSize="25" 
+                    FontFamily="American Typewriter, serif"
+                    FontWeight="Bold"
+                    Background="#612A12"
+                    Foreground="BlanchedAlmond"
+                    Click="ButtonCalculate_Click"/>
+
+                <!-- Answer block -->
+                <TextBox 
+                Name="answer"
+                Width="201"
+                Height="50"
+                Margin="80,0,0,0"
+                FontFamily="American Typewriter, serif"
+                FontWeight="Bold"
+                FontSize="18"
+                Background="BlanchedAlmond"
+                BorderBrush="#612A12"
+                BorderThickness="2"/>
+            </StackPanel>
+
+
+
+            <!-- Clear Button -->
+            <StackPanel Orientation="Vertical" Margin="195,50,-196,0" RenderTransformOrigin="0.582,0.513" Height="87">
+                <Button
+                Name="clearButton"
+                Content="Clear"
+                Margin="0,0,0,10"
+                Width="70"
+                FontSize="18"
+                FontFamily="American Typewriter, serif"
+                FontWeight="Bold"
+                Background="#A5531F"
+                Foreground="BlanchedAlmond"
+                Click="ClearButton_Click"/>
+                <Button
+                    x:Name="exitButton"
+                    Content="Exit"
+                    HorizontalAlignment="Right"
+                    Margin="0,10,215,0"
+                    Width="70"
+                    FontSize="18"
+                    FontFamily="American Typewriter, serif"
+                    FontWeight="Bold"
+                    Background="#A5531F"
+                    Foreground="BlanchedAlmond"
+                    Click="ExitButton_Click"/>
+
+                <!-- Exit Button -->
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

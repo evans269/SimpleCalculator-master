@@ -1,0 +1,72 @@
+﻿<Window x:Class="SimpleCalculator.HelpWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SimpleCalculator"
+        mc:Ignorable="d"
+        Title="HelpWindow" 
+        Height="450" 
+        Width="800"
+        Background="#A5531F">
+    <Grid>
+        <StackPanel Orientation="Vertical" Width="500">
+            <Label
+                Content="Instructions"
+                HorizontalAlignment="Center"
+                FontSize="28"
+                FontFamily="American Typewriter, serif"
+                FontWeight="Bold"
+                Foreground="#612A12 " 
+                Height="78" 
+                Margin="167,0"/>
+
+            <TextBlock
+                Text="1) Enter your weight in pounds."
+                FontSize="18"
+                Padding="10"
+                FontFamily="American Typewriter, serif"
+                FontWeight="Bold"
+                Foreground="#CDB59A"/>
+
+            <TextBlock
+                Text="2) Select your beverage."
+                FontSize="18"
+                Padding="10"
+                FontFamily="American Typewriter, serif"
+                FontWeight="Bold"
+                Foreground="#CDB59A"/>
+
+            <TextBlock
+                Text="3) Select your caffeine sensitivity."
+                FontSize="18"
+                Padding="10"
+                FontFamily="American Typewriter, serif"
+                FontWeight="Bold"
+                Foreground="#CDB59A"/>
+
+            <TextBlock
+                Text="4) Press the calculate button."
+                FontSize="18"
+                Padding="10"
+                FontFamily="American Typewriter, serif"
+                FontWeight="Bold"
+                Foreground="#CDB59A" 
+                Height="70"/>
+
+            <Button
+                Content="Exit"
+                Width="70"
+                Height="30"
+                Margin="20"
+                FontSize="18"
+                FontFamily="American Typewriter, serif"
+                FontWeight="Bold"
+                Background="#612A12 "
+                Foreground="BlanchedAlmond" 
+                Click="Exit_Button_Click"/>
+        
+        </StackPanel>
+        
+    </Grid>
+</Window>
